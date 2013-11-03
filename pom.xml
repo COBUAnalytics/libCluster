@@ -12,6 +12,10 @@
             <artifactId>guava</artifactId>
             <version>15.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.matrix-toolkits-java</groupId>
+            <artifactId>mtj</artifactId>
+            <version>0.9.14</version>
+        </dependency>
     </dependencies>
-
 </project>
