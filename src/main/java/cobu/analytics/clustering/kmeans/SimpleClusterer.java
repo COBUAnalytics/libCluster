@@ -4,21 +4,14 @@ import no.uib.cipr.matrix.Vector;
 
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fwe
- * Date: 11/3/13
- * Time: 3:54 PM
- * To change this template use File | Settings | File Templates.
- */
-public class KMCluster {
+public class SimpleClusterer {
     private final int dimension;
     private final ArrayList<Vector> data;
     private final ArrayList<Vector> centroids;
-    private ArrayList<Double> distanceSquaredToNearestCluster;
-    private ArrayList<Integer> closestCluster;
+    private double[] distanceToNearestCentroid;
+    private int[] nearestCentroid;
 
-    public KMCluster(ArrayList<Vector> data,ArrayList<Vector> centroids){
+    public SimpleClusterer(ArrayList<Vector> data, ArrayList<Vector> centroids){
         this.data = data;
         this.centroids= new ArrayList<Vector>(centroids);
         checkDimensionalConsistency(data,centroids);
@@ -26,6 +19,9 @@ public class KMCluster {
         if(dimension == 0){
             throw new IllegalArgumentException("Dimension must be greater than 0");
         }
+        distanceToNearestCentroid = new double[data.size()];
+        nearestCentroid = new int[data.size()];
+        findNearestCentroid();
     }
 
     private void checkDimensionalConsistency(ArrayList<Vector> data, ArrayList<Vector> centroids) {
@@ -47,5 +43,38 @@ public class KMCluster {
                 }
             }
         }
+    }
+
+    private double distance(Vector datum,Vector centroid){
+        double sum=0.0;
+        for(int i=0;i< datum.size();i++){
+            double d=datum.get(i)-centroid.get(i);
+            sum+=d*d;
+        }
+        return Math.sqrt(sum);
+    }
+
+    private void findNearestCentroid(){
+        for(int d = 0;d<data.size();d++){
+            double distance = Double.MAX_VALUE;
+            int cluster = -1;
+            for(int c=0;c<centroids.size();c++){
+                double x=distance(data.get(d),centroids.get(c));
+                if(x<distance){
+                    cluster=c;
+                    distance=x;
+                }
+            }
+            this.distanceToNearestCentroid[d]=distance;
+            this.nearestCentroid[d]=cluster;
+        }
+    }
+
+    public double[] getDistanceToNearestCentroid() {
+        return distanceToNearestCentroid;
+    }
+
+    public int[] getNearestCentroid() {
+        return nearestCentroid;
     }
 }

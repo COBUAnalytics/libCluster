@@ -14,14 +14,14 @@ import java.util.ArrayList;
  * Time: 4:24 PM
  * To change this template use File | Settings | File Templates.
  */
-public class KMClusterTest {
+public class SimpleClustererTest {
     @Test(expected = IllegalArgumentException.class)
     public void testInconsistentDimensionBetweenDataAndCentroids() {
         ArrayList<Vector> data = new ArrayList<Vector>();
         ArrayList<Vector> centroids = new ArrayList<Vector>();
         data.add(new DenseVector(new double[]{0.0, 1.0, 2.0}));
         centroids.add(new DenseVector(new double[]{0.0, 0.0}));
-        new KMCluster(data, centroids);
+        new SimpleClusterer(data, centroids);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -31,7 +31,7 @@ public class KMClusterTest {
         data.add(new DenseVector(new double[]{0.0, 0.0, 0.0}));
         data.add(new DenseVector(new double[]{0.0, 0.0}));
         centroids.add(new DenseVector(new double[]{0.0, 0.0, 0.0}));
-        new KMCluster(data, centroids);
+        new SimpleClusterer(data, centroids);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -42,7 +42,7 @@ public class KMClusterTest {
         data.add(new DenseVector(new double[]{0.0, 0.0, 0.0}));
         centroids.add(new DenseVector(new double[]{0.0, 0.0, 0.0}));
         centroids.add(new DenseVector(new double[]{0.0, 0.0}));
-        new KMCluster(data, centroids);
+        new SimpleClusterer(data, centroids);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -53,7 +53,10 @@ public class KMClusterTest {
         data.add(new DenseVector(new double[]{}));
         centroids.add(new DenseVector(new double[]{}));
         centroids.add(new DenseVector(new double[]{}));
-        new KMCluster(data, centroids);
+        new SimpleClusterer(data, centroids);
     }
+    @Test
+    public void testCentroidDistance(){
 
+    }
 }
