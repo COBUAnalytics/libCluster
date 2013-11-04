@@ -4,13 +4,6 @@ import no.uib.cipr.matrix.Vector;
 
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fwe
- * Date: 11/3/13
- * Time: 3:54 PM
- * To change this template use File | Settings | File Templates.
- */
 public class KMCluster {
     private final int dimension;
     private final ArrayList<Vector> data;

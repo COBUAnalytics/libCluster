@@ -7,13 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fwe
- * Date: 11/3/13
- * Time: 4:24 PM
- * To change this template use File | Settings | File Templates.
- */
 public class KMClusterTest {
     @Test(expected = IllegalArgumentException.class)
     public void testInconsistentDimensionBetweenDataAndCentroids() {
