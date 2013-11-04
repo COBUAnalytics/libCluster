@@ -3,7 +3,7 @@ package cobu.analytics.clustering.kmeans;
 
 import no.uib.cipr.matrix.DenseVector;
 import no.uib.cipr.matrix.Vector;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 

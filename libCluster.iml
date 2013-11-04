@@ -16,6 +16,15 @@
     <orderEntry type="library" name="Maven: com.googlecode.netlib-java:netlib-java:0.9.3" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.f2j:arpack_combined_all:0.1" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.8.2" level="project" />
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 
