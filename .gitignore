@@ -1,7 +1,9 @@
-.iml
-.idea
-.idea/workspace.xml
+*.class
 
-.idea/workspace.xml
-
-libCluster.iml
+# Package Files #
+*.iml
+.idea/
+*.jar
+*.war
+*.ear
+target
